@@ -6,7 +6,7 @@ export async function WeatherFetch<T>({
   location,
 }: WeatherFetchProps): Promise<T> {
   try {
-    const url = `http://api.weatherapi.com/v1/current.json?key=${configuration.apiToken}&q=${location}&aqi=no`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${configuration.apiToken}&q=${location}&aqi=no`;
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(
