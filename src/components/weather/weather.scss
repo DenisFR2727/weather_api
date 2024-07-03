@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.weather {
+  width: 500px;
+  //   height: 600px;
+  height: 100vh;
+  position: relative;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+
+  .background-app-weather {
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    transition: 1s all ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // border-radius: 0 0 20px 20px;
+  }
+  .weather-content {
+    padding-top: 20px;
+    text-align: center;
+    position: relative;
+    color: white;
+
+    .date-time {
+      font-weight: 500;
+      font-size: 22px;
+    }
+    form {
+      padding-top: 20px;
+      .change-location {
+        background-color: transparent;
+        padding: 5px;
+        border-radius: 5px;
+        border: 2px solid blue;
+      }
+      .change-location:hover {
+        border: 2px solid blue;
+        color: white;
+        font-weight: 600;
+      }
+      .change-location:focus-within {
+        border-color: blue;
+        color: white;
+        font-weight: 600;
+      }
+      button {
+        border: 2px solid blue;
+        color: blue;
+        border-radius: 5px;
+        padding: 5px;
+        background-color: transparent;
+        margin-left: 20px;
+        user-select: none;
+      }
+      button:hover {
+        padding: 5px;
+        background-color: transparent;
+        background: rgba(128, 128, 128, 0.265);
+        cursor: pointer;
+      }
+    }
+    .location {
+      padding-top: 20px;
+      .country {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .city {
+        padding-top: 20px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .region {
+        padding-top: 20px;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .continent {
+        padding-top: 20px;
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+    .temp-options {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .temp {
+        padding-top: 20px;
+        font-size: 40px;
+        font-weight: 700;
+        color: white;
+        &::after {
+          content: "°C";
+        }
+      }
+
+      .weather-img {
+        padding-top: 20px;
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+    .cloud {
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .winds {
+      p {
+        padding-top: 20px;
+      }
+    }
+  }
+}
