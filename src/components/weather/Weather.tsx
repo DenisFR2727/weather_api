@@ -2,14 +2,9 @@ import React, { useState, useEffect } from "react";
 import { WeatherFetch } from "../api";
 import { images } from "../../imagesData";
 import { IData } from "./type";
-
+import ThermometerWeather from "./Thermometer";
 import "./weather.scss";
 
-import Thermometer from "./Thermometer";
-import ThermometerWeather from "./Thermometer";
-// interface WeatherFetchProps {
-//   location: string;
-// }
 function Weather() {
   const [weather, setWeather] = useState<IData | null>(null);
   const [location, setLocation] = useState<string>("Kyiv");
