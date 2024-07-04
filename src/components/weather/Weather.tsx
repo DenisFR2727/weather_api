@@ -12,6 +12,10 @@ function Weather() {
   const [backgroundAppWeather, setBackgroundAppWeather] = useState<string>(
     images[Math.floor(Math.random() * images.length)]
   );
+  const [nextBackgroundAppWeather, setNextBackgroundAppWeather] =
+    useState<string>(images[Math.floor(Math.random() * images.length)]);
+  const [isNextBackgroundVisible, setIsNextBackgroundVisible] =
+    useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   //   Date
   const date = new Date();
@@ -27,12 +31,24 @@ function Weather() {
   useEffect(() => {
     const timer = setInterval((): void => {
       const background = images[Math.floor(Math.random() * images.length)];
-      setBackgroundAppWeather(background);
-    }, 3000);
+      setNextBackgroundAppWeather(background);
+      setIsNextBackgroundVisible(true);
+    }, 10000);
     return (): void => {
       clearInterval(timer);
     };
   }, []);
+  useEffect(() => {
+    if (isNextBackgroundVisible) {
+      const timer = setTimeout(() => {
+        setBackgroundAppWeather(nextBackgroundAppWeather);
+        setIsNextBackgroundVisible(false);
+      }, 1000); // transition duration
+      return (): void => {
+        clearTimeout(timer);
+      };
+    }
+  }, [isNextBackgroundVisible, nextBackgroundAppWeather]);
 
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
@@ -64,9 +80,19 @@ function Weather() {
   return (
     <div className="weather">
       <div
-        className="background-app-weather"
+        className={`background-app-weather ${
+          isNextBackgroundVisible ? "hidden" : ""
+        }`}
         style={{
           backgroundImage: `url(${backgroundAppWeather})`,
+        }}
+      ></div>
+      <div
+        className={`background-app-weather ${
+          isNextBackgroundVisible ? "" : "hidden"
+        }`}
+        style={{
+          backgroundImage: `url(${nextBackgroundAppWeather})`,
         }}
       ></div>
 
