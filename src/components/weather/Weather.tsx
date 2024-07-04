@@ -113,6 +113,9 @@ function Weather() {
   const openAstronomy = () => {
     setAstronomy((prev) => !prev);
   };
+  document.body.addEventListener("touchmove", function (e) {
+    e.preventDefault();
+  });
   return (
     <div className="weather" ref={refAstronomy}>
       <div
