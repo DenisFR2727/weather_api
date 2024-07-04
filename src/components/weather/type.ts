@@ -44,7 +44,21 @@ interface ILocation {
   region: string;
   tz_id: string;
 }
+interface Astronomy {
+  sunrise: string;
+  sunset: string;
+  moonrise: string;
+  moonset: string;
+  moon_phase: string;
+  moon_illumination: number;
+  is_moon_up: number;
+  is_sun_up: number;
+}
+interface IAstro {
+  astro: Astronomy;
+}
 export interface IData {
   location: ILocation;
   current: ICurrent;
+  astronomy: IAstro;
 }

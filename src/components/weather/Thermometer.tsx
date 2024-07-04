@@ -1,15 +1,20 @@
 import Thermometer from "react-thermometer-component";
 
+import "./thermometer.scss";
 interface ThermometerProps {
   temp_c: number | undefined | null;
+  theme?: "dark" | "light" | "small";
 }
-const ThermometerWeather = ({ temp_c }: ThermometerProps) => {
+const ThermometerWeather: React.FC<ThermometerProps> = ({
+  temp_c,
+  theme = "dark",
+}: ThermometerProps) => {
   return (
     <Thermometer
-      theme="light"
+      theme={theme}
       value={temp_c}
       max="60"
-      steps="3"
+      steps="6"
       format="°C"
       size="small"
       height="300"
