@@ -113,16 +113,28 @@ function Weather() {
   const openAstronomy = () => {
     setAstronomy((prev) => !prev);
   };
-  // document.body.addEventListener("touchmove", function (e) {
-  //   e.preventDefault();
-  // });
-  useEffect(() => {
-    document.body.style.backgroundImage = `url(${
-      isNextBackgroundVisible ? nextBackgroundAppWeather : backgroundAppWeather
-    })`;
-  }, [isNextBackgroundVisible, backgroundAppWeather, nextBackgroundAppWeather]);
+
+  // useEffect(() => {
+  //   document.body.style.backgroundImage = `url(${
+  //     isNextBackgroundVisible ? nextBackgroundAppWeather : backgroundAppWeather
+  //   })`;
+  // }, [isNextBackgroundVisible, backgroundAppWeather, nextBackgroundAppWeather]);
   return (
     <div className="weather" ref={refAstronomy}>
+      <div
+        className="background-image"
+        style={{
+          backgroundImage: `url(${backgroundAppWeather})`,
+          opacity: isNextBackgroundVisible ? 0 : 1,
+        }}
+      />
+      <div
+        className="background-image"
+        style={{
+          backgroundImage: `url(${nextBackgroundAppWeather})`,
+          opacity: isNextBackgroundVisible ? 1 : 0,
+        }}
+      />
       <div className="weather-content">
         <p className="date-time">{`${dayName}, ${day}, ${month}, ${time.slice(
           0,
