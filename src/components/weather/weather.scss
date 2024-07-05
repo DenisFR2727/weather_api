@@ -16,6 +16,8 @@
   align-items: center;
   font-family: "Rubik", sans-serif;
   background-image: cover;
+  background-size: cover; // added this line
+  background-attachment: fixed;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   height: 100vh;
