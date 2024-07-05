@@ -116,24 +116,13 @@ function Weather() {
   // document.body.addEventListener("touchmove", function (e) {
   //   e.preventDefault();
   // });
+  useEffect(() => {
+    document.body.style.backgroundImage = `url(${
+      isNextBackgroundVisible ? nextBackgroundAppWeather : backgroundAppWeather
+    })`;
+  }, [isNextBackgroundVisible, backgroundAppWeather, nextBackgroundAppWeather]);
   return (
     <div className="weather" ref={refAstronomy}>
-      <div
-        className={`background-app-weather ${
-          isNextBackgroundVisible ? "hidden" : ""
-        }`}
-        style={{
-          backgroundImage: `url(${backgroundAppWeather})`,
-        }}
-      ></div>
-      <div
-        className={`background-app-weather ${
-          isNextBackgroundVisible ? "" : "hidden"
-        }`}
-        style={{
-          backgroundImage: `url(${nextBackgroundAppWeather})`,
-        }}
-      ></div>
       <div className="weather-content">
         <p className="date-time">{`${dayName}, ${day}, ${month}, ${time.slice(
           0,
