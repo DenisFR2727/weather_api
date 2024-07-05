@@ -20,7 +20,7 @@ function Weather() {
   const [astronomy, setAstronomy] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   //   Date
-  const date = new Date();
+  const date: Date = new Date();
   const day = date.getDay();
   const dayName = date.toLocaleString("en-US", { weekday: "long" });
   const month = date.toLocaleString("en-US", { month: "long" });
@@ -114,11 +114,6 @@ function Weather() {
     setAstronomy((prev) => !prev);
   };
 
-  // useEffect(() => {
-  //   document.body.style.backgroundImage = `url(${
-  //     isNextBackgroundVisible ? nextBackgroundAppWeather : backgroundAppWeather
-  //   })`;
-  // }, [isNextBackgroundVisible, backgroundAppWeather, nextBackgroundAppWeather]);
   return (
     <div className="weather" ref={refAstronomy}>
       <div
